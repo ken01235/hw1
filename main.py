@@ -32,17 +32,23 @@ C0F9A0 = list(filter(lambda item: item['station_id'] == 'C0F9A0', target_data))
 C0G640 = list(filter(lambda item: item['station_id'] == 'C0G640', target_data))
 C0R190 = list(filter(lambda item: item['station_id'] == 'C0R190', target_data))
 C0X260 = list(filter(lambda item: item['station_id'] == 'C0X260', target_data))
-for i in C0A880: i = i['PRES']
-for i in C0F9A0: i = i['PRES']
-for i in C0G640: i = i['PRES']
-for i in C0R190: i = i['PRES']
-for i in C0X260: i = i['PRES']
+C0A880_PRES = []
+C0F9A0_PRES = []
+C0G640_PRES = []
+C0R190_PRES = []
+C0X260_PRES = []
+for i in C0A880: C0A880_PRES.append(float(i['PRES']))
+for i in C0F9A0: C0F9A0_PRES.append(float(i['PRES']))
+for i in C0G640: C0G640_PRES.append(float(i['PRES']))
+for i in C0R190: C0R190_PRES.append(float(i['PRES']))
+for i in C0X260: C0X260_PRES.append(float(i['PRES']))
 result = [
-   ['C0A880', sum(C0A880) / len(C0A880)]
-   ['C0F9A0', sum(C0F9A0) / len(C0F9A0)]
-   ['C0G640', sum(C0G640) / len(C0G640)]
-   ['C0R190', sum(C0R190) / len(C0R190)]
-   ['C0X260', sum(C0X260) / len(C0X260)]]
+    ['C0A880', round(sum(C0A880_PRES)/ len(C0A880_PRES), 2)],
+    ['C0F9A0', round(sum(C0F9A0_PRES)/ len(C0F9A0_PRES), 2)],
+    ['C0G640', round(sum(C0G640_PRES)/ len(C0G640_PRES), 2)],
+    ['C0R190', round(sum(C0R190_PRES)/ len(C0R190_PRES), 2)],
+    ['C0X260', round(sum(C0X260_PRES)/ len(C0X260_PRES), 2)]
+]
 
 #=======================================
 
