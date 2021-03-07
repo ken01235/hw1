@@ -49,6 +49,7 @@ result = [
     ['C0R190', round(sum(C0R190_PRES)/ len(C0R190_PRES), 2)],
     ['C0X260', round(sum(C0X260_PRES)/ len(C0X260_PRES), 2)]
 ]
+result.sort()
 
 #=======================================
 
