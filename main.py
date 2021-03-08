@@ -25,8 +25,11 @@ with open(cwb_filename) as csvfile:
 # target_data = list(filter(lambda item: item['station_id'] == 'C0X260', data))
 
 # Retrive ten data points from the beginning.
-data2 = list(filter(lambda item: item['PRES'] != '-99.000', data))
-target_data = list(filter(lambda item: item['PRES'] != '-999.000', data2))
+def exsit_data(item):
+    if (item['PRES']) == '-99.000': return False
+    if (item['PRES']) == '-999.000': return False
+    return True
+target_data = list(filter(exsit_data, data))
 C0A880 = list(filter(lambda item: item['station_id'] == 'C0A880', target_data))
 C0F9A0 = list(filter(lambda item: item['station_id'] == 'C0F9A0', target_data))
 C0G640 = list(filter(lambda item: item['station_id'] == 'C0G640', target_data))
